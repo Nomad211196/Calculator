@@ -1,0 +1,77 @@
+.main {
+    margin: 150px auto;
+    width: 300px;
+    height: 500px;
+    border-radius: 15px;
+    background: black;
+    color: white;
+    font-family: Arial;
+    padding: 20px;
+}
+
+.screen {
+    height: 120px;
+    padding: 15px;
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    margin-bottom: 10px;
+}
+
+
+.screen p {
+    font-size: 50px;
+    margin: 0;
+}
+
+.buttons {
+    display: grid;
+    grid-template-areas: 
+    "c c c divide"
+    "seven eight nine multiply"
+    "four five six minus"
+    "one two three plus"
+    "zero zero comma equal";
+    grid-gap: 10px;
+    justify-items: center;
+}
+
+.btn {
+    border: 0;
+    font-family: arial;
+    color: white;
+    width: 60px;
+    height: 60px;
+    background: #313030;
+    border-radius: 50%;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.btn.c {
+    grid-area: c;
+    width: 100%;
+    border-radius: 50px;
+}
+
+.btn.zero {
+    grid-area: zero;
+    width: 100%;
+    border-radius: 50px;
+}
+
+.btn.btn-grey {
+    background: #969191;
+}
+
+.btn.btn-orange {
+    background: orange;
+}
+
+.btn:hover {
+    filter:brightness(125%)
+}
+
+.btn:active {
+    filter: brightness(80%);
+}
