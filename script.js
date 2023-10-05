@@ -20,7 +20,6 @@ main.addEventListener('click', function(event) {
         
             default:
                 if (Operation(value) && Operation(lastValue)) {
-                    // Если текущий символ и последний символ - арифметические операторы, не добавляем его
                     return;
                 }
                 result.innerText += value;
