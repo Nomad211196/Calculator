@@ -1,29 +1,44 @@
 const main = document.querySelector('.main');
-const result = document.querySelector('.result')
+const result = document.querySelector('.result');
+let pointEntered = false;
 
 function Operation(symbol) {
     return ['+', '-', '*', '/'].includes(symbol);
 }
 
 main.addEventListener('click', function(event) {
-    if(!event.target.classList.contains('btn')) return;
+    if (!event.target.classList.contains('btn')) return;
     const value = event.target.innerText;
 
-    switch(value) {
+    switch (value) {
         case 'Clear':
             result.innerText = '';
+            pointEntered = false;
             break;
 
         case '=':
             result.innerText = eval(result.innerText).toFixed(2);
+            pointEntered = false;
             break;
-        
-            default:
-                if (Operation(value) && Operation(lastValue)) {
-                    return;
-                }
-                result.innerText += value;
-                lastValue = value;
-        }
-    });
-    
+
+        case '.':
+            if (pointEntered) {
+                return; 
+            }
+            result.innerText += value;
+            pointEntered = true; 
+            break;
+
+        default:
+            if (Operation(value)) {
+                pointEntered = false;
+            }
+            
+            if (Operation(value) && Operation(lastValue)) {
+                return;
+            }
+            result.innerText += value;
+            lastValue = value;
+    }
+});
+Ы
