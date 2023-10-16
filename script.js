@@ -1,6 +1,7 @@
 const main = document.querySelector('.main');
 const result = document.querySelector('.result');
 let pointEntered = false;
+let lastValue = ''
 
 function Operation(symbol) {
     return ['+', '-', '*', '/'].includes(symbol);
@@ -18,17 +19,15 @@ main.addEventListener('click', function(event) {
 
         case '=':
             result.innerText = eval(result.innerText).toFixed(2);
-            pointEntered = false;
+            pointEntered = true;
             break;
-
         case '.':
-            if (pointEntered) {
+            if (pointEntered || result.innerText === '' || Operation(lastValue)) {
                 return; 
             }
             result.innerText += value;
-            pointEntered = true; 
+            pointEntered = true;
             break;
-
         default:
             if (Operation(value)) {
                 pointEntered = false;
@@ -41,4 +40,3 @@ main.addEventListener('click', function(event) {
             lastValue = value;
     }
 });
-Ы
