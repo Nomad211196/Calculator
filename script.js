@@ -40,7 +40,6 @@ main.addEventListener('click', function(event) {
             }
 
             result.innerText += value;
-            lastValue = value;
             pointEntered = false;
             break;
 
@@ -50,7 +49,6 @@ main.addEventListener('click', function(event) {
             }
 
             result.innerText += value;
-            lastValue = value;
             break;
     }
 });
